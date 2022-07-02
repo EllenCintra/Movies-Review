@@ -15,7 +15,7 @@ Através deste link https://www.getpostman.com/collections/9f8ca4256c7bd8de0bd4 
   * Maven
   * Springs: Data Jpa, Security, Cache, Web, Validation, Cloud e Openfeign 
   * io.jsonwebtoken
-  * H2 Database: acompanhe pelo console http://localhost:8080/h2-console 
+  * H2 Database: acompanhe pelo console http://localhost:8080/h2-console, usuário e senha disponíveis no application.properties 
   
   * Dependências estão configuradas nos arquivos pom.xml e application.properties
   

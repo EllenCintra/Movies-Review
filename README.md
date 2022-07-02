@@ -20,10 +20,7 @@ Através deste link https://www.getpostman.com/collections/9f8ca4256c7bd8de0bd4 
   * Dependências estão configuradas nos arquivos pom.xml e application.properties
   
 # Project Architecture
-|--src/main/java
 
-  |--com.movies
-  
      |--client/omdb
      |--config
         |--security
@@ -37,12 +34,5 @@ Através deste link https://www.getpostman.com/collections/9f8ca4256c7bd8de0bd4 
        |--mapper
      |--repository
      |--service
-     
-|--src/main/resources
 
-  |--application.properties
-  
-|--target
-
-  |--pom.xml
 

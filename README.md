@@ -2,7 +2,7 @@
 
 Api para avaliar e comentar sobre os filmes disponíveis pela API pública OMDb API
 
-# Installing
+# Instalação
 $ git clone https://github.com/EllenCintra/MoviesReview
 
 Tendo instalado o Java 11, selecione a IDE de sua preferência e import Existing Maven Project.
@@ -19,7 +19,7 @@ Através deste link https://www.getpostman.com/collections/9f8ca4256c7bd8de0bd4 
   
   * Dependências estão configuradas nos arquivos pom.xml e application.properties
   
-# Project Architecture
+# Arquitetura do Projeto
 
      |--client/omdb
      |--config

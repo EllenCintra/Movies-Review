@@ -39,7 +39,7 @@ public class CommentController {
 	@PostMapping
 	public ResponseEntity<Object> replyComment(@PathVariable Long id, @AuthenticationPrincipal Account logged, @RequestBody @Valid CommentForm dto) {
 		if (logged.getProfile() == Profile.Reader) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
 		}
 		commentService.postReplyComment(id, logged, dto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(null);
@@ -56,7 +56,7 @@ public class CommentController {
 	@CacheEvict(value = "movieComments", allEntries=true)
 	public ResponseEntity<Object> likeComment(@PathVariable Long id, @AuthenticationPrincipal Account logged) {
 		if (logged.getProfile() == Profile.Reader || logged.getProfile() == Profile.Basic) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
 		}
 		commentService.likeComment(id, logged);
 		return ResponseEntity.status(HttpStatus.OK).body(null);
@@ -67,7 +67,7 @@ public class CommentController {
 	@CacheEvict(value = "movieComments", allEntries=true)
 	public ResponseEntity<Object> deslikeComment(@PathVariable Long id, @AuthenticationPrincipal Account logged) {
 		if (logged.getProfile() == Profile.Reader || logged.getProfile() == Profile.Basic) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
 		}
 		commentService.deslikeComment(id, logged);
 		return ResponseEntity.status(HttpStatus.OK).body(null);
@@ -78,7 +78,7 @@ public class CommentController {
 	@CacheEvict(value = "movieComments", allEntries=true)
 	public ResponseEntity<Object> repeatedComment(@PathVariable Long id, @AuthenticationPrincipal Account logged) {
 		if (logged.getProfile() != Profile.Moderator) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
 		}
 		commentService.markAsRepeated(id);
 		return ResponseEntity.status(HttpStatus.OK).body(null);
@@ -89,7 +89,7 @@ public class CommentController {
 	@CacheEvict(value = "movieComments", allEntries=true)
 	public ResponseEntity<Object> deleteComment(@PathVariable Long id, @AuthenticationPrincipal Account logged) {
 		if (logged.getProfile() != Profile.Moderator) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
 		}
 		commentService.deleteComment(id);
 		return ResponseEntity.status(HttpStatus.OK).body(null);
